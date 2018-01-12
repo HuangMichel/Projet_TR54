@@ -173,7 +173,7 @@ public class AIBot extends Robot implements Runnable {
 	public int getOrder(final String[] list) {
 		if (inTheList(list) == true) {
 			for (int i = 0; i < list.length; ++i) {
-				if (new Integer(list[i]).equals(getId())) {
+				if (new Integer(list[i]) == getId()) {
 					return (i + 1);
 				}
 			}
@@ -199,7 +199,7 @@ public class AIBot extends Robot implements Runnable {
 	 */
 	public boolean inTheList(final String[] list) {
 		for (int i = 0; i < list.length; i++) {
-			if (new Integer(i).equals(getId())) {
+			if (new Integer(i) == getId()) {
 				return true;
 			}
 		}
@@ -319,7 +319,7 @@ public class AIBot extends Robot implements Runnable {
 							}
 
 							AIBot.order = getOrder(msgReceived);
-
+							msgReceived = new String[] {};
 							setLED(AIBot.order);
 
 							setSpeed(normalSpeed);
@@ -381,11 +381,11 @@ public class AIBot extends Robot implements Runnable {
 										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
-
+									
 									Button.LEDPattern(0);
 									order = 0;
 								}
-
+								msg = "";
 								LCD.clear(3);
 
 							} else {

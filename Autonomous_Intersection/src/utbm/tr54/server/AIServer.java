@@ -225,7 +225,7 @@ public class AIServer extends Server implements Runnable {
 
 					case TYPE_NEW:
 
-						if (!inTheList(msg.getId()) == false) {
+						if (inTheList(msg.getId()) == false) {
 							LCD.clear(4);
 							LCD.drawString("NEW", 0, 4);
 							msg.setType(TYPE_NOUPDATE);
